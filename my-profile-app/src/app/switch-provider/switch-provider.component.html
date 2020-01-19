@@ -25,4 +25,27 @@
   <div style="position:relative; left:76%;font-size:small;"> Provider No: {{curretnProviderNo}}</div>
   <button class="btn btn-link btn-xs" style="position:relative; left:75%;" (click)="open(content)">Switch Provider number</button>
   <button class="btn btn-link btn-xs" style="position:relative; left:75%;">Logout</button>
-  <hr>
+  <div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">HPIO</th>
+        <th scope="col">Provider Number</th>
+        <th scope="col">Linked On</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of dropList; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ item.providerNo }}
+        </td>
+        <td>{{item.hpio}}</td>
+        <td>{{ item.isDefaultProv }}</td>
+        <td><button class="btn btn-outline-secondary btn-sm" >Make Default</button></td>
+        <td><button class="btn btn-outline-secondary btn-sm" >Delink</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
