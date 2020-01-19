@@ -1,24 +1,28 @@
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">
+      <h4 class="modal-title" id="modal-basic-title" style="font-size:16px;font-weight: bold;">
         Switch Provider Number</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-        Please select the provider number you would like to switch to:
-        <select style="width: 300px;" (change)="selectChangeHandler($event)" formControlName="[dropList]" id="dropList" >
+    <div class="modal-body" style="font-size:14px;">
+        <p>Please select the provider number you would like to switch to:</p>
+        <select style="width: 250px;" (change)="selectChangeHandler($event)" formControlName="[dropList]" id="dropList" >
           <option *ngFor="let item of dropList" [value]="item.providerNo">
             {{item.providerNo}}-{{item.hpio}}
           </option>
         </select>
+        <p></p>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel click')">Cancel</button>
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Switch click')">Switch</button>
+
+      <button type="button" style="position:relative; right:40%;" class="btn btn-secondary btn-xs" (click)="modal.close('Cancel click')">Cancel</button>
+     
+      <button type="button" class="btn btn-primary btn-xs" (click)="modal.close('Switch click')">Switch</button>
     </div>
 </ng-template>
-  <p> Provider No: {{curretnProviderNo}}</p>
-  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Switch Provider number</button>
+  <div style="position:relative; left:76%;font-size:small;"> Provider No: {{curretnProviderNo}}</div>
+  <button class="btn btn-link btn-xs" style="position:relative; left:75%;" (click)="open(content)">Switch Provider number</button>
+  <button class="btn btn-link btn-xs" style="position:relative; left:75%;">Logout</button>
   <hr>
