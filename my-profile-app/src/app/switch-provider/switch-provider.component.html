@@ -1,0 +1,24 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Switch Provider Number</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        Please select the provider number you would like to switch to:
+        <select style="width: 300px;" (change)="selectChangeHandler($event)" formControlName="[dropList]" id="dropList" >
+          <option *ngFor="let item of dropList" [value]="item.providerNo">
+            {{item.providerNo}}-{{item.hpio}}
+          </option>
+        </select>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Cancel click')">Cancel</button>
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Switch click')">Switch</button>
+    </div>
+</ng-template>
+  <p> Provider No: {{curretnProviderNo}}</p>
+  <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Switch Provider number</button>
+  <hr>
